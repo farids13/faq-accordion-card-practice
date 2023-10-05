@@ -13,7 +13,6 @@
 
   <title>Frontend Mentor | FAQ Accordion Card</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
@@ -61,16 +60,9 @@
       margin: 0;
       padding: 0;
     }
-    .hero{
-      position: relative;
-    }
     .hero-img{
       position: relative;
-      overflow: hidden;
-    }
-    .hero-img > picture > img{
-      position: relative;
-      width: 470px;
+      width: 480px;
       left: -80px;
     }
     .box-hero{
@@ -106,7 +98,6 @@
     }
     .faq > dt{
       width: 80%;
-      /* border-bottom: 1px solid hsl(237, 12%, 33%); */
       margin-top: 15px;
     }
     .toggle{
@@ -162,7 +153,16 @@
         display: none;
       }
       .hero-img{
-        /* position: absolute; */
+        position: relative;
+        padding: 0;
+        margin: 0;
+        width: inherit;
+        display: flex;
+        position: relative;
+        left: auto;
+      }
+      .hero-img img{
+        margin: 0;
         margin-top: -120px;
         width: 240px;
       }
@@ -170,7 +170,7 @@
         position: absolute;
         width: 230px;
         height: auto;
-        top: -25px;
+        top: -55px;
         left: 50%;
         transform: translate(-50%, 50%);
       }
@@ -187,6 +187,8 @@
       }
       .toggle{
         width: inherit
+      }
+      *{
       }
     }
   </style>
@@ -206,7 +208,7 @@
           <div class="hero-img">
               <picture>
                 <source srcset="./images/illustration-woman-online-mobile.svg" media="(max-width:900px)">
-                <img src="./images/illustration-woman-online-desktop.svg" alt="">
+                <img srcset="./images/illustration-woman-online-desktop.svg">
               </picture>
           </div>
         </picture>
