@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Inter:wght@400;700&family=Josefin+Sans:wght@300;400;600&family=Karla:wght@400;700&family=Kumbh+Sans:wght@400;700&family=League+Spartan:wght@400;700&family=Lexend+Deca:wght@400;700&family=Manrope:wght@500;700&family=Montserrat:wght@600&family=Open+Sans&family=Outfit:wght@100;300;400;600&family=Overpass:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <title>Frontend Mentor | FAQ Accordion Card</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    footer{
+      position: fixed;
+      bottom: 0;
+    }
+    body{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      background-image: linear-gradient(to bottom, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+    }
+    .container{
+      width: 960px;
+      height: 510px;
+      font-family: 'Kumbh Sans';
+      box-sizing: border-box;
+      position: relative;
+    }
+    .sub-container{
+      transition: 0.5s ease;
+      width: 920px;
+      height: inherit;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+      border-radius: 20px;
+      background-color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .bg-container{
+      position: absolute;
+      width: 800px;
+      height: 850px;
+      top: -240px;
+      left: -400px;
+    }
+    .faq{
+      margin: 0;
+      padding: 0;
+    }
+    .hero{
+      position: relative;
+    }
+    .hero-img{
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-img > img{
+      position: relative;
+      width: 470px;
+      left: -80px;
+    }
+    .box-hero{
+      transition: 0.3s ease;
+      position: absolute;
+      filter: none;
+      z-index: 1;
+      top: 205px;
+      left: -54px;
+    }
+    .faq{
+      margin-left: 5px;
+      width: inherit;
+      margin-top: 65px;
+      margin-bottom: auto;
+    }
+    .faq > h1{
+     margin: 0;
+     margin-bottom: 35px;
+    }
+    .faq > dd{
+      margin: 0;
+      padding: 0;
+      margin-top: -0px;
+      font-size: 12px;
+      width: 80%;
+      letter-spacing: 0.1px;
+      line-height: 16px;
+      margin-bottom: 35px;
+      color:  hsl(240, 6%, 50%);
+      margin-left: 2px;
+      display: none; 
+    }
+    .faq > dt{
+      width: 80%;
+      /* border-bottom: 1px solid hsl(237, 12%, 33%); */
+      margin-top: 15px;
+    }
+    .toggle{
+      font-size: 14px;
+      letter-spacing: 0.4px;
+      padding: 0;
+      margin-bottom: 15px;
+      color: hsl(238, 29%, 16%);
+      background-color: transparent;
+      border: none;
+      letter-spacing: 0.33px;
+      margin-left: 2px; 
+      width: 335px;
+      text-align: start;
+      position: relative;
+    }
+    .toggle:hover{
+      color: hsl(14, 88%, 65%);
+    }
+    .toggle > i{
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      height: 10px;
+      color: hsl(14, 88%, 65%);
+    }
+    .line{
+      border-bottom: 1px solid  hsl(240, 6%, 50%);
+    }
+    @media screen and (max-width:900px) {
+      body{
+        /* background: url(./design/mobile-design.jpg) no-repeat center fixed; */
+        align-items: start;
+      }
+      .container{
+        width: 375px;
+        height: 760px;
+        align-items: start;
+        border-radius: 0;
+        display: flex;
+        align-items: flex-end;
+      }
+      .sub-container{
+        width: 87%;
+        margin-right: auto;
+        flex-direction: column;
+        position: relative;
+        height: 70%;
+        box-sizing: border-box;
+        overflow: visible;
+        position: relative;
+      }
+      .box-hero{
+        display: none;
+      }
+      .hero-img{
+        /* position: absolute; */
+        margin-top: -120px;
+        width: 240px;
+      }
+      .bg-container{
+        position: absolute;
+        width: 230px;
+        height: auto;
+        top: -25px;
+        left: 50%;
+        transform: translate(-50%, 50%);
+      }
+      .faq{
+        margin-top: 50px;
+        text-align: center;
+      }
+      .faq > dt{
+        width: 281px;
+      }
+      .faq > dd{
+        text-align: left;
+        width: 281px;
+      }
+      .toggle{
+        width: inherit
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <svg class="box-hero" width="191" height="184" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><filter x="-97.9%" y="-76.3%" width="295.8%" height="313.7%" filterUnits="objectBoundingBox" id="a"><feOffset dy="25" in="SourceAlpha" result="shadowOffsetOuter1"/><feGaussianBlur stdDeviation="25" in="shadowOffsetOuter1" result="shadowBlurOuter1"/><feColorMatrix values="0 0 0 0 0.209139076 0 0 0 0 0.0691446444 0 0 0 0 0.478091033 0 0 0 0.497159091 0" in="shadowBlurOuter1"/></filter><path id="b" d="M0 27.756v53.87l41.968 24.035 47.387-28.025v-53.87"/></defs><g fill="none" fill-rule="evenodd"><g transform="translate(50.93 2.125)"><use fill="#000" filter="url(#a)" xlink:href="#b"/><use fill="#FF9271" xlink:href="#b"/></g><path fill="#DF5C34" fill-rule="nonzero" d="M92.899 53.917v53.87l47.387-28.026v-53.87z"/><path fill="#F47B56" fill-rule="nonzero" d="M50.93 29.88L99.624 2.126l40.662 23.767-47.387 28.025z"/><path d="M94.013 14.49a25.942 25.942 0 0114.207 3.129c2.486 1.462 3.844 2.988 4.036 4.579.192 1.59-.628 2.975-2.562 4.143a9.115 9.115 0 01-2.985 1.18c-.869.205-1.76.295-2.652.269l-.974-.077c.091.217.151.446.18.68a3.132 3.132 0 01-.513 1.552 5.704 5.704 0 01-2.1 2.065 12.633 12.633 0 01-6.7 1.77 13.247 13.247 0 01-6.957-1.757c-1.999-1.18-3.023-2.566-3.1-4.156a4.49 4.49 0 012.562-4.015 8.488 8.488 0 012.357-1.013 9.175 9.175 0 012.037-.346h.705l-1.282-.77 3.6-2.244 8.34 4.912a4.377 4.377 0 004.15 0c1.769-1.103 1.137-2.552-1.895-4.348a19.261 19.261 0 00-10.556-2.347 21.67 21.67 0 00-11.018 3.168c-3.023 1.89-4.522 4.143-4.496 6.76 0 2.564 1.601 4.848 4.714 6.682a21.015 21.015 0 0011.146 2.655 20.926 20.926 0 0011.017-2.925 12.353 12.353 0 003.062-2.565 5.683 5.683 0 001.28-2.18l.18-.808 4.753.269c.008.145.008.29 0 .436a8.216 8.216 0 01-.346 1.154 8.303 8.303 0 01-.82 1.72 11.912 11.912 0 01-1.69 2 15.952 15.952 0 01-2.755 2.13 25.602 25.602 0 01-9.326 3.36 35.176 35.176 0 01-10.877.192 24.896 24.896 0 01-9.339-3.053 12.127 12.127 0 01-5.304-5.566 8.192 8.192 0 010-6.593 12.692 12.692 0 015.266-5.759 28.966 28.966 0 0114.655-4.284zm4.663 13.262c-.17-.891-.77-1.64-1.601-2.001a6.579 6.579 0 00-3.33-.911 5.619 5.619 0 00-3.101.795 2.283 2.283 0 00-1.281 2.001c.117.89.69 1.654 1.512 2.014a6.54 6.54 0 003.394.86 6.092 6.092 0 003.254-.847 2.065 2.065 0 001.205-1.911" fill="#3E2928" fill-rule="nonzero"/></g></svg>
+    <div class="sub-container">
+      
+      <picture class="bg-container">
+        <source srcset="./images/bg-pattern-mobile.svg" media="(max-width:900px)">
+        <img class="bg-container" src="./images/bg-pattern-desktop.svg" alt="Background">
+      </picture>
+      
+      <div class="hero">
+        <picture>
+          <div class="hero-img">
+              <picture>
+                <source srcset="./images/illustration-woman-online-mobile.svg" media="(max-width:900px)">
+                <img src="./images/illustration-woman-online-desktop.svg" alt="">
+              </picture>
+          </div>
+        </picture>
+      </div>
+
+      <dl class="faq">
+        <h1>FAQ</h1>
+        <dt>
+          <button class="toggle" is-press = "false">
+            How many team members can I invite?
+            <i class="toggle-icon fas fa-chevron-down"></i>
+          </button>
+          <div class="line"></div>
+        </dt>
+        <dd>
+          You can invite up to 2 additional users on the Free plan. There is no limit on
+          team members for the Premium plan.
+        </dd>
+        <dt>
+          <button class="toggle" is-press = "false">
+            What is the maximum file upload size?
+            <i class="toggle-icon fas fa-chevron-down"></i>
+          </button>
+          <div class="line"></div>
+        </dt>
+        <dd>No more than 2GB. All files in your account must fit your allotted storage space.</dd>
+        <dt>
+          <button class="toggle" is-press = "false">
+            How do I reset my password?
+            <i class="toggle-icon fas fa-chevron-down"></i>
+          </button>
+          <div class="line"></div>
+        </dt>
+        <dd>
+          Click “Forgot password” from the login page or “Change password” from your profile page.
+          A reset link will be emailed to you.
+        </dd>
+        <dt>
+          <button class="toggle" is-press = "false">
+            Can I cancel my subscription?
+            <i class="toggle-icon fas fa-chevron-down"></i>
+          </button>
+          <div class="line"></div>
+        </dt>
+        <dd>Yes! Send us a message and we’ll process your request no questions asked.</dd>
+        <dt>
+          <button class="toggle" is-press = "false">
+            Do you provide additional support?
+            <i class="toggle-icon fas fa-chevron-down"></i>
+          </button>
+          <div class="line"></div>
+        </dt>
+        <dd>Chat and email support is available 24/7. Phone lines are open during normal business hours.</dd>
+      </dl>
+    </div>
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Farid Satria</a>.
+  </footer>
+  <script>
+    const buttons = document.querySelectorAll('.toggle');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', function() {
+        const icon = button.querySelector('i');
+        const dd = button.parentElement.nextElementSibling;
+
+        buttons.forEach(btn =>{
+          if(btn !== button){
+            close(btn, icon);
+          }
+        });
+
+
+        const isPress = button.getAttribute('is-press') === 'false';
+        if (isPress){
+         open(button, icon)
+        }else{
+         close(button, icon);
+        }
+
+      });
+    });
+
+    function open(button, icon){
+      button.setAttribute('is-press', true);
+      icon.classList.remove('fa-chevron-down');
+      icon.classList.add('fa-chevron-up');
+      button.style.fontWeight = 'bold';
+
+      const boxHero = document.querySelector('.box-hero');
+      boxHero.style.left = '-110px';
+
+      const isMobile = window.matchMedia('(max-width:900px)');
+
+      if(!isMobile.matches){
+        const subContainer = document.querySelector('.sub-container');
+        subContainer.style.transform = 'translateX(-20px)';  
+      }
+
+      const line = button.nextElementSibling;
+      line.style.transform = 'translateY(50px)';
+      
+
+      const dd = button.parentElement.nextElementSibling;
+      dd.style.display = 'block';
+    }
+    
+    function close(button, icon){
+      button.setAttribute('is-press', false);
+      icon.classList.remove('fa-chevron-up');
+      icon.classList.add('fa-chevron-down');
+      button.style.fontWeight = '';
+
+      const boxHero = document.querySelector('.box-hero');
+      boxHero.style.left = '';
+
+      const subContainer = document.querySelector('.sub-container');
+      subContainer.style.transform = '';
+
+      const line = button.nextElementSibling;
+      line.style.transform = '';
+
+      const dd = button.parentElement.nextElementSibling;
+      dd.style.display = 'none';  
+    }
+    
+  </script>
+</body>
+</html>
